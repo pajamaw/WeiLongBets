@@ -1,1 +1,12 @@
-"parser": "eslint-config-react"
+{
+  "extends": "airbnb",
+  "rules": {
+    "func-names": ["error", "never"],
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": 0,
+    "arrow-parens": "off",
+    "no-console": 0,
+    "prefer-const": 0,
+    "no-undef": 0,
+  }
+}
