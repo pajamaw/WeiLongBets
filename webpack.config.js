@@ -15,6 +15,12 @@ module.exports = {
       { test: /\.jsx?$/, loader: 'babel-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.json$/i, loader: 'json-loader' },
+      { test: /\.(gif|png|jpe?g|svg)$/i,
+        loaders: [
+          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack-loader',
+        ],
+      },
     ],
   },
   devServer: {

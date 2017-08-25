@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import contract from 'truffle-contract';
 import SimpleStorageContract from '../../../build/contracts/SimpleStorage.json';
 import getWeb3 from '../../utils/getWeb3';
+import handShake from '../../images/clipart-free-handshake-5.jpg';
 // import './css/oswald.css'
 // import './css/open-sans.css'
 import '../../css/pure-min.css';
-import { H1, H2, Main, Nav, NavA } from './style.jsx';
+import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class App extends Component {
     this.state = {
       storageValue: 1,
       web3: null,
+      pending: false,
+      calling: false,
     };
   }
   componentWillMount() {
@@ -72,13 +75,22 @@ class App extends Component {
         <Main>
           <div className="pure-g">
             <div className="pure-u-1-1">
-              <H1>Good to Go!</H1>
-              <p>Your Truffle Box is installed and ready.</p>
-              <H2>Smart Contract Example</H2>
-              <p>If your contracts compiled and migrated successfully,
-                below will show a stored value of 5 (by default).</p>
-              <p>Try changing the value stored on <strong>line 59</strong> of App.js.</p>
-              <p>The stored value is: {this.state.storageValue}</p>
+              <Img
+                src={handShake}
+                height="100px"
+                width="100px"
+                alt="OldtimeyHandshake"
+              />
+              <H1>Wei Long Bets</H1>
+              <H3>/weɪ lɔŋ bets/</H3>
+            </div>
+            <div className="pure-u-1-1">
+              <P>.</P>
+              <H2>Description</H2>
+              <P>Down here well have a verification of the code linking with the source code</P>
+              <P>Try changing the value stored on <strong>line 59</strong> of App.js.</P>
+              <P>The stored value is: {this.state.storageValue} this
+               value was retreived from the blockchain</P>
             </div>
           </div>
         </Main>
