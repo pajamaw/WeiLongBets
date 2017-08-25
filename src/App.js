@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import SimpleStorageContract from '../build/contracts/SimpleStorage.json'
 import getWeb3 from './utils/getWeb3'
 
-import './css/oswald.css'
-import './css/open-sans.css'
+// import './css/oswald.css'
+// import './css/open-sans.css'
 import './css/pure-min.css'
 import './App.css'
 
@@ -12,7 +12,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      storageValue: 0,
+      storageValue: 1,
       web3: null
     }
   }
@@ -21,8 +21,7 @@ class App extends Component {
     // Get network provider and web3 instance.
     // See utils/getWeb3 for more info.
 
-    getWeb3
-    .then(results => {
+    getWeb3.then(results => {
       this.setState({
         web3: results.web3
       })
@@ -30,7 +29,8 @@ class App extends Component {
       // Instantiate contract once web3 provided.
       this.instantiateContract()
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err)
       console.log('Error finding web3.')
     })
   }
@@ -48,7 +48,7 @@ class App extends Component {
     simpleStorage.setProvider(this.state.web3.currentProvider)
 
     // Declaring this for later so we can chain functions on SimpleStorage.
-    var simpleStorageInstance
+    var simpleStorageInstance;
 
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
