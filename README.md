@@ -22,8 +22,8 @@ Browser plugins like MetaMask or Mist that allow anyone to interact with Dapps (
       * ForfeitFor
       * ForfeitAgainst
       * escrow addr (not sure on this one)
-      * # of votes for mapping?
-      * # of votes against mapping?
+      * of votes for mapping?
+      * of votes against mapping?
     - Functions I'll need
       * Create Bet
         - With Description
