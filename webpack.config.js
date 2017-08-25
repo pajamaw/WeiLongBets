@@ -1,6 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-process.env.NODE_ENV = 'development';
-process.env.BABEL_ENV = 'development';
+var DefinePlugin = require('extended-define-webpack-plugin')
 
 module.exports = {
   entry: [
@@ -12,11 +11,10 @@ module.exports = {
     filename: 'main.js'
   },
   module: {
-    exclude: /(node_modules|)/,
     loaders: [
       { test: /\.js$/, loader: 'babel-loader' },
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.json$/i, loader: "json"}
+      { test: /\.json$/i, loader: "json-loader"}
     ]
   },
   devServer: {
@@ -29,6 +27,9 @@ module.exports = {
       title: 'React!',
       devServer: 'http://localhost:3000',
       appMountId: 'root'
+    }),
+    new DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
 }
