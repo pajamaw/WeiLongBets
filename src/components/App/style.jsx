@@ -15,10 +15,8 @@ export const H1 = styled.h1`
 `;
 export const H2 = styled.h2`
   font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
-  font-color: #333;
   font-weight: 100;
   text-align: center;
-
 `;
 export const H3 = styled.h3`
   text-align: center;

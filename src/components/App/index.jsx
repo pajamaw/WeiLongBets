@@ -3,8 +3,8 @@ import contract from 'truffle-contract';
 import SimpleStorageContract from '../../../build/contracts/SimpleStorage.json';
 import getWeb3 from '../../utils/getWeb3';
 import handShake from '../../images/clipart-free-handshake-5.jpg';
-// import './css/oswald.css'
-// import './css/open-sans.css'
+
+import RecentBets from './RecentBets/index.jsx';
 import '../../css/pure-min.css';
 import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.jsx';
 
@@ -52,7 +52,7 @@ class App extends Component {
         console.log(simpleStorageInstance);
         console.log(accounts);
         // Stores a given value, 5 by default.
-        return simpleStorageInstance.set(6, { from: accounts[0] });
+        return simpleStorageInstance.set(1, { from: accounts[0] });
       }).then((result) => {
         console.log(result);
         // Get the value from the contract to prove it worked.
@@ -85,13 +85,14 @@ class App extends Component {
               <H3>/weɪ lɔŋ bets/</H3>
             </div>
             <div className="pure-u-1-1">
-              <P>.</P>
+              <P> </P>
               <H2>Description</H2>
               <P>Down here well have a verification of the code linking with the source code</P>
               <P>Try changing the value stored on <strong>line 59</strong> of App.js.</P>
               <P>The stored value is: {this.state.storageValue} this
                value was retreived from the blockchain</P>
             </div>
+            <RecentBets />
           </div>
         </Main>
       </div>
