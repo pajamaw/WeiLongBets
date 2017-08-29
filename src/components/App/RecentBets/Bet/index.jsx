@@ -8,16 +8,12 @@ class Bet extends Component {
 
     };
   }
-  componentWillMount() {
-  }
   render() {
     let bet = this.props.bet;
     let { Description } = bet;
     return (
       <div className="pure-u-1-1">
-        <p>{console.log(bet)}</p>
         <p>{Description}</p>
-
       </div>
     );
   }

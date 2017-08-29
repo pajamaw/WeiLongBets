@@ -12,36 +12,69 @@ const BetsSection = styled.div`
   text-align:center;
 `;
 
-const pArrowL = styled.div`
+const ArrowL = styled.div`
   width: 20%;
-  display:inline;
   background-color: blue;
 `;
 
-const pArrowR = styled.div`
+const ArrowR = styled.div`
   width: 20%;
-  text-align: right;
   background-color: blue;
 `;
+
+const Arrow = ({ onClickHandler, text, dis }) => (
+  <button disabled={dis} onClick={() => onClickHandler()}>{text}</button>
+);
 
 class RecentBets extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      currentBetIndex: this.props.bets.length - 1,
     };
+
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
   }
-  componentWillMount() {
+
+  increment() {
+    if (this.state.currentBetIndex !== this.props.bets.length - 1) {
+      this.setState((prevState) => ({
+        currentBetIndex: prevState.currentBetIndex + 1,
+      }));
+    }
+  }
+
+  decrement() {
+    if (this.state.currentBetIndex !== 0) {
+      this.setState((prevState) => ({
+        currentBetIndex: prevState.currentBetIndex - 1,
+      }));
+    }
   }
 
   render() {
+    let { bets } = this.props;
+    let { currentBetIndex } = this.state;
     return (
       <div className="pure-u-1-1">
         <BetsSection>
-          <pArrowL><p>Left Arrow</p></pArrowL>
-          <Bet bet={this.props.bets[this.props.bets.length-1]}/>
-          <pArrowR><p>Right Arrow</p></pArrowR>
+          <ArrowL>
+            <Arrow
+              dis={this.state.currentBetIndex === 0}
+              onClickHandler={this.decrement}
+              text={String.fromCharCode(10508)}
+            />
+          </ArrowL>
+          <Bet bet={bets[currentBetIndex]} />
+          <ArrowR>
+            <Arrow
+              dis={this.state.currentBetIndex === this.props.bets.length - 1}
+              onClickHandler={this.increment}
+              text={String.fromCharCode(10509)}
+            />
+          </ArrowR>
         </BetsSection>
       </div>
     );
