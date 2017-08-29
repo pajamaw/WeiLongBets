@@ -1,4 +1,4 @@
-export default testBets = [
+const testBets = [
   {
     Description: 'This is a description for the vote',
     Creator: 'address',
@@ -100,3 +100,4 @@ export default testBets = [
     BetEscrow: 'address',
   },
 ];
+export default testBets;

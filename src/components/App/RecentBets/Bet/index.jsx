@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 
 class Bet extends Component {
   constructor(props) {
@@ -12,9 +11,13 @@ class Bet extends Component {
   componentWillMount() {
   }
   render() {
+    let bet = this.props.bet;
+    let { Description } = bet;
     return (
       <div className="pure-u-1-1">
-        <div> container for bet </div>
+        <p>{console.log(bet)}</p>
+        <p>{Description}</p>
+
       </div>
     );
   }

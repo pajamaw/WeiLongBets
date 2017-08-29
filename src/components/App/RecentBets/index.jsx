@@ -40,7 +40,7 @@ class RecentBets extends Component {
       <div className="pure-u-1-1">
         <BetsSection>
           <pArrowL><p>Left Arrow</p></pArrowL>
-          <Bet />
+          <Bet bet={this.props.bets[this.props.bets.length-1]}/>
           <pArrowR><p>Right Arrow</p></pArrowR>
         </BetsSection>
       </div>

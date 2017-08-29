@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import contract from 'truffle-contract';
 import SimpleStorageContract from '../../../build/contracts/SimpleStorage.json';
 import getWeb3 from '../../utils/getWeb3';
-import handShake from '../../images/clipart-free-handshake-5.jpg';
 
+import handShake from '../../images/clipart-free-handshake-5.jpg';
 import RecentBets from './RecentBets/index.jsx';
+import BetList from './BetList/index.jsx';
+
 import '../../css/pure-min.css';
 import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.jsx';
+
+import testBets from './testBets.js';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +21,7 @@ class App extends Component {
       web3: null,
       pending: false,
       calling: false,
+      allBets: testBets,
     };
   }
   componentWillMount() {
@@ -35,6 +40,7 @@ class App extends Component {
     });
   }
   instantiateContract() {
+    console.log(this.state);
     /*
      * SMART CONTRACT EXAMPLE
      *
@@ -91,7 +97,8 @@ class App extends Component {
               <P>The stored value is: {this.state.storageValue} this
                value was retreived from the blockchain</P>
             </div>
-            <RecentBets />
+            <RecentBets bets={this.state.allBets} />
+            <BetList bets={this.state.allBets} />
           </div>
         </Main>
       </div>
