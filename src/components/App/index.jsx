@@ -85,7 +85,6 @@ class App extends Component {
               <H3>/weɪ lɔŋ bets/</H3>
             </div>
             <div className="pure-u-1-1">
-              <P> </P>
               <H2>Description</H2>
               <P>Down here well have a verification of the code linking with the source code</P>
               <P>Try changing the value stored on <strong>line 59</strong> of App.js.</P>
