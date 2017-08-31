@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
 import Bet from './Bet/index.jsx';
 
 const BetsSection = styled.div`
