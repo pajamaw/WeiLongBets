@@ -5,6 +5,8 @@ export const Img = styled.img`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: -3%;
+  height:100px;
+  width:100px;
 `;
 export const H1 = styled.h1`
   font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;

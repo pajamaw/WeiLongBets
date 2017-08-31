@@ -5,11 +5,11 @@ class Bet extends Component {
     super(props);
 
     this.state = {
-
+      accordioned: false,
     };
   }
   render() {
-    let bet = this.props.bet;
+    let { bet } = this.props;
     let { Description } = bet;
     return (
       <div className="pure-u-1-1">

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import contract from 'truffle-contract';
-import SimpleStorageContract from '../../../build/contracts/SimpleStorage.json';
-import getWeb3 from '../../utils/getWeb3';
+import SimpleStorageContract from '../../build/contracts/SimpleStorage.json';
+import getWeb3 from '../utils/getWeb3';
 
-import handShake from '../../images/clipart-free-handshake-5.jpg';
+import handShake from '../images/clipart-free-handshake-5.jpg';
 import RecentBets from './RecentBets/index.jsx';
 import BetList from './BetList/index.jsx';
 
-import '../../css/pure-min.css';
+import '../css/pure-min.css';
 import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.jsx';
 
 import testBets from './testBets.js';
@@ -83,8 +83,6 @@ class App extends Component {
             <div className="pure-u-1-1">
               <Img
                 src={handShake}
-                height="100px"
-                width="100px"
                 alt="OldtimeyHandshake"
               />
               <H1>Wei Long Bets</H1>
