@@ -4,9 +4,9 @@ import SimpleStorageContract from '../../build/contracts/SimpleStorage.json';
 import getWeb3 from '../utils/getWeb3';
 
 import handShake from '../images/clipart-free-handshake-5.jpg';
-import RecentBets from './RecentBets/index.jsx';
-import BetList from './BetList/index.jsx';
-import AddBet from './AddBet/index.jsx';
+import RecentBets from './RecentBets';
+import BetList from './BetList';
+import AddBet from './AddBet';
 
 import '../css/pure-min.css';
 import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.jsx';
@@ -39,6 +39,12 @@ class App extends Component {
       console.log(err);
       console.log('Error finding web3.');
     });
+  }
+  handleSubmit(e) {
+    event.preventDefault();
+    this.setState({
+      this.
+    })
   }
   instantiateContract() {
     console.log(this.state);
@@ -98,7 +104,7 @@ class App extends Component {
             </div>
             <RecentBets bets={this.state.allBets} />
             <BetList bets={this.state.allBets} />
-            <AddBet />
+            <AddBet handleSubmit={this.handleSubmit} />
           </div>
         </Main>
       </div>

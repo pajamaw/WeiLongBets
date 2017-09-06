@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Bet from './Bet/index.jsx';
+import Bet from './Bet/';
 
 const BetsSection = styled.div`
   width: 100%;

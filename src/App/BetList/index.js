@@ -1,5 +1,5 @@
 import React from 'react';
-import Bet from '../RecentBets/Bet/index.jsx';
+import Bet from '../RecentBets/Bet/';
 
 const allBets = betCollection => betCollection.map((bet) => (
   <li><Bet bet={bet} /></li>
