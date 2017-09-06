@@ -6,6 +6,7 @@ import getWeb3 from '../utils/getWeb3';
 import handShake from '../images/clipart-free-handshake-5.jpg';
 import RecentBets from './RecentBets/index.jsx';
 import BetList from './BetList/index.jsx';
+import AddBet from './AddBet/index.jsx';
 
 import '../css/pure-min.css';
 import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.jsx';
@@ -97,6 +98,7 @@ class App extends Component {
             </div>
             <RecentBets bets={this.state.allBets} />
             <BetList bets={this.state.allBets} />
+            <AddBet />
           </div>
         </Main>
       </div>
