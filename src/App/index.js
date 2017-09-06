@@ -9,7 +9,7 @@ import BetList from './BetList';
 import AddBet from './AddBet';
 
 import '../css/pure-min.css';
-import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.jsx';
+import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.js';
 
 import testBets from './testBets.js';
 
@@ -24,6 +24,7 @@ class App extends Component {
       calling: false,
       allBets: testBets,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentWillMount() {
     // Get network provider and web3 instance.
@@ -41,10 +42,20 @@ class App extends Component {
     });
   }
   handleSubmit(e) {
-    event.preventDefault();
-    this.setState({
-      this.
-    })
+    let betPropertiesFromForm = e.target.elements;
+    let newBet = {
+      Title: betPropertiesFromForm.title.value,
+      Duration: betPropertiesFromForm.duration.value,
+      Description: betPropertiesFromForm.description.value,
+      Wager: betPropertiesFromForm.wager.value,
+      Category: betPropertiesFromForm.category.value,
+    };
+
+    this.setState(prevState => ({
+      allBets: [...prevState.allBets, newBet]
+    }));
+    e.preventDefault();
+    e.target.reset();
   }
   instantiateContract() {
     console.log(this.state);

@@ -90,6 +90,7 @@ module.exports = {
     //     include: paths.appSrc,
     //   }
     // ],
+    // comment out if using global linter
     loaders: [
       // Default loader: load all assets that are not handled
       // by other loaders with the url loader.
