@@ -25,7 +25,7 @@ Browser plugins like MetaMask or Mist that allow anyone to interact with Dapps (
       * of votes for mapping?
       * of votes against mapping?
     - Functions I'll need
-      * Create Bet
+      * Create Bet (IP)
         - With Description
         - with better addr
         - with sum to match
@@ -42,17 +42,17 @@ Browser plugins like MetaMask or Mist that allow anyone to interact with Dapps (
 
 #### React
   - Components
-    - App
+    - App (IP)
       * Outer container
       * Will I need to be maintaining state if I just check immediately to see if they have a client?
-    - Rotating Latest Bet Block
-    - list of Bets
-    - individual bet
+    - Rotating Latest Bet Block (IP)
+    - list of Bets (IP)
+    - individual bet (IP)
     - Sidebar that pops out to show all current bets
 
 #### To integrate
  - Metamask
- - testing
+ - testing (check)
 
 #### Ideas that need to be hashed out a bit more....
   - Until there's a way to unconditionally verify if bets won or lost we'll have to rely upon anonymous votes from the public as well as the loser to see the battle and just decide to forfeit
