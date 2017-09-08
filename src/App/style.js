@@ -45,12 +45,13 @@ export const Main = styled.main`
 export const P = styled.p`
   text-align: center;
 `;
-
 /* NAVBAR */
 
 export const Nav = styled.nav`
   position: fixed;
   padding: 5px;
+  height:5%;
+  text-transform: none;
   background: #3454d1;
   width: 100%;
   font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
@@ -59,6 +60,4 @@ export const NavA = styled.a`
   color: #fff;
   font-weight: bold;
   text-transform: none;
-  &:active, &:focus, &:hover {
-    background: #233e5e;
-  }`;
+`;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import contract from 'truffle-contract';
+import AppBar from 'material-ui/AppBar'
+
 import SimpleStorageContract from '../../build/contracts/SimpleStorage.json';
 import getWeb3 from '../utils/getWeb3';
 
@@ -7,7 +9,6 @@ import handShake from '../images/clipart-free-handshake-5.jpg';
 import RecentBets from './RecentBets';
 import BetList from './BetList';
 import AddBet from './AddBet';
-
 import '../css/pure-min.css';
 import { P, Img, H1, H2, H3, Main, Nav, NavA } from './style.js';
 
@@ -92,10 +93,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav>
-          <NavA>Truffle Box</NavA>
-        </Nav>
-
+        <AppBar
+          title="WeiLongBets"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+        />
         <Main>
           <div className="pure-g">
             <div className="pure-u-1-1">
