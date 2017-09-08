@@ -36,6 +36,11 @@ export const Main = styled.main`
   box-sizing: border-box;
   width: 100%;
   padding: 45px 20px;
+  background-color: #FAFAFA;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  min-height: 100%;
+  height:100%;
 `;
 export const P = styled.p`
   text-align: center;
@@ -46,7 +51,7 @@ export const P = styled.p`
 export const Nav = styled.nav`
   position: fixed;
   padding: 5px;
-  background: #0c1a2b;
+  background: #3454d1;
   width: 100%;
   font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
 `;
