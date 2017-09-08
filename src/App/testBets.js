@@ -1,5 +1,6 @@
 const testBets = [
   {
+    Title: 'VoteFor1',
     Description: 'This is a description for the vote',
     Creator: 'address',
     Challenger: 'address',
@@ -20,6 +21,7 @@ const testBets = [
     BetEscrow: 'address',
   },
   {
+    Title: 'VoteFor2',
     Description: 'This is a description for the vote1',
     Creator: 'address',
     Challenger: 'address',
@@ -40,6 +42,7 @@ const testBets = [
     BetEscrow: 'address',
   },
   {
+    Title: 'VoteFor3',
     Description: 'This is a description for the vote2',
     Creator: 'address',
     Challenger: 'address',
@@ -60,6 +63,7 @@ const testBets = [
     BetEscrow: 'address',
   },
   {
+    Title: 'VoteFor3',
     Description: 'This is a description for the vote3',
     Creator: 'address',
     Challenger: 'address',
@@ -80,6 +84,7 @@ const testBets = [
     BetEscrow: 'address',
   },
   {
+    Title: 'VoteFor4',
     Description: 'This is a description for the vote4',
     Creator: 'address',
     Challenger: 'address',

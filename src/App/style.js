@@ -41,6 +41,7 @@ export const Main = styled.main`
   overflow-x: hidden;
   min-height: 100%;
   height:100%;
+  letter-spacing: normal;
 `;
 export const P = styled.p`
   text-align: center;

@@ -43,6 +43,7 @@ class App extends Component {
     });
   }
   handleSubmit(e) {
+    e.preventDefault();
     let betPropertiesFromForm = e.target.elements;
     let newBet = {
       Title: betPropertiesFromForm.title.value,
@@ -55,7 +56,6 @@ class App extends Component {
     this.setState(prevState => ({
       allBets: [...prevState.allBets, newBet]
     }));
-    e.preventDefault();
     e.target.reset();
   }
   instantiateContract() {
@@ -98,26 +98,24 @@ class App extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
         <Main>
-          <div className="pure-g">
-            <div className="pure-u-1-1">
-              <Img
-                src={handShake}
-                alt="OldtimeyHandshake"
-              />
-              <H1>Wei Long Bets</H1>
-              <H3>/weɪ lɔŋ bets/</H3>
-            </div>
-            <div className="pure-u-1-1">
-              <H2>Description</H2>
-              <P>Down here well have a verification of the code linking with the source code</P>
-              <P>Try changing the value stored on <strong>line 59</strong> of App.js.</P>
-              <P>The stored value is: {this.state.storageValue} this
-               value was retreived from the blockchain</P>
-            </div>
-            <RecentBets bets={this.state.allBets} />
-            <BetList bets={this.state.allBets} />
-            <AddBet handleSubmit={this.handleSubmit} />
+          <div className="pure-u-1-1">
+            <Img
+              src={handShake}
+              alt="OldtimeyHandshake"
+            />
+            <H1>Wei Long Bets</H1>
+            <H3>/weɪ lɔŋ bets/</H3>
           </div>
+          <div className="pure-u-1-1">
+            <H2>Description</H2>
+            <P>Down here well have a verification of the code linking with the source code</P>
+            <P>Try changing the value stored on <strong>line 59</strong> of App.js.</P>
+            <P>The stored value is: {this.state.storageValue} this
+             value was retreived from the blockchain</P>
+          </div>
+          <RecentBets bets={this.state.allBets} />
+          <BetList bets={this.state.allBets} />
+          <AddBet handleSubmit={this.handleSubmit} />
         </Main>
       </div>
     );

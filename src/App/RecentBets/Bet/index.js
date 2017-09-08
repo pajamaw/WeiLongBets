@@ -1,4 +1,15 @@
 import React, { Component } from 'react';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
+
+const titleStyle = {
+  "fontWeight": "bold",
+};
+
+const containerStyle = {
+  "margin": "2%",
+}
 
 class Bet extends Component {
   constructor(props) {
@@ -10,11 +21,29 @@ class Bet extends Component {
   }
   render() {
     let { bet } = this.props;
-    let { Description } = bet;
+    let { Description, Title } = bet;
     return (
-      <div className="pure-u-1-1">
-        <p>{Description}</p>
-      </div>
+      <Paper style={containerStyle} zDepth={3}>
+        <Card>
+          <CardHeader
+            title={Title}
+            subtitle=""
+            actAsExpander={true}
+            style={titleStyle}
+            showExpandableButton={true}
+          />
+          <CardActions>
+            <FlatButton style={titleStyle} label="Accept Bet" />
+            <FlatButton style={titleStyle} label="Forfeit Bet" />
+            <FlatButton style={titleStyle} label="Vote For" />
+            <FlatButton style={titleStyle} label="Vote Against" />
+            <FlatButton style={titleStyle} label="Accept Winnings" />
+          </CardActions>
+          <CardText expandable={true}>
+            {Description}
+          </CardText>
+        </Card>
+      </Paper>
     );
   }
 }

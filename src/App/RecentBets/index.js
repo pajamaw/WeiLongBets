@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Bet from './Bet/';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const BetsSection = styled.div`
   width: 100%;
   display: flex;
   height: 100%;
-  background-color: grey;
+  background-color: #FFF;
   margin: 0 auto;
   text-align:center;
+  max-height:100%;
 `;
 
 const ArrowL = styled.div`
   width: 20%;
-  background-color: blue;
+  margin-top: 5%;
 `;
 
 const ArrowR = styled.div`
   width: 20%;
-  background-color: blue;
+  margin-top: 5%;
 `;
 
 const Arrow = ({ onClickHandler, text, dis }) => (
-  <button disabled={dis} onClick={() => onClickHandler()}>{text}</button>
+  <RaisedButton label={text} disabled={dis} onClick={() => onClickHandler()} />
 );
 
 class RecentBets extends Component {
