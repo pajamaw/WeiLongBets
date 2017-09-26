@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import contract from 'truffle-contract';
 import AppBar from 'material-ui/AppBar'
+import Drawer from 'material-ui/Drawer';
 
 import SimpleStorageContract from '../../build/contracts/SimpleStorage.json';
 import getWeb3 from '../utils/getWeb3';
-
 import handShake from '../images/clipart-free-handshake-5.jpg';
 import RecentBets from './RecentBets';
 import BetList from './BetList';
@@ -24,6 +24,7 @@ class App extends Component {
       pending: false,
       calling: false,
       allBets: testBets,
+      open: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -54,7 +55,8 @@ class App extends Component {
     };
 
     this.setState(prevState => ({
-      allBets: [...prevState.allBets, newBet]
+      allBets: [...prevState.allBets, newBet],
+      open: false,
     }));
     e.target.reset();
   }
@@ -89,6 +91,9 @@ class App extends Component {
       ));
     });
   }
+  handleToggle() {
+    this.setState({ open: !this.state.open });
+  }
 
   render() {
     return (
@@ -98,6 +103,9 @@ class App extends Component {
           iconClassNameRight="muidocs-icon-navigation-expand-more"
         />
         <Main>
+          <button onClick={() => this.handleToggle()}>
+            Add Bet
+          </button>
           <div className="pure-u-1-1">
             <Img
               src={handShake}
@@ -115,7 +123,9 @@ class App extends Component {
           </div>
           <RecentBets bets={this.state.allBets} />
           <BetList bets={this.state.allBets} />
-          <AddBet handleSubmit={this.handleSubmit} />
+          <Drawer openSecondary={true} open={this.state.open}>
+            <AddBet handleSubmit={this.handleSubmit} />
+          </Drawer>
         </Main>
       </div>
     );
