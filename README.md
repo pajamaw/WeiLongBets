@@ -9,7 +9,7 @@ Browser plugins like MetaMask or Mist that allow anyone to interact with Dapps (
 
 #### Contracts
   - Bet
-    - Variables we'll need
+    - Variables we'll need (check)
       * Description string?
       * Better addr
       * Challenger addr
@@ -42,17 +42,17 @@ Browser plugins like MetaMask or Mist that allow anyone to interact with Dapps (
 
 #### React
   - Components
-    - App (IP)
+    - App (check)
       * Outer container
       * Will I need to be maintaining state if I just check immediately to see if they have a client?
-    - Rotating Latest Bet Block (IP)
-    - list of Bets (IP)
-    - individual bet (IP)
-    - Sidebar that pops out to show all current bets
+    - Rotating Latest Bet Block (check)
+    - list of Bets (check)
+    - individual bet (chceck)
+    - Sidebar that pops out to show all current bets(changed)
 
 #### To integrate
  - Metamask
- - testing (check)
+ - testing (check`)
 
 #### Ideas that need to be hashed out a bit more....
   - Until there's a way to unconditionally verify if bets won or lost we'll have to rely upon anonymous votes from the public as well as the loser to see the battle and just decide to forfeit
