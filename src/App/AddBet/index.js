@@ -18,12 +18,20 @@ class AddBet extends Component {
       titleLabel: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       [event.target.name.charAt(0).toUpperCase()]: event.target.value,
       [`${event.target.name}Label`]: !(event.target.value === ''),
+    });
+  }
+  handleDateChange(event, date) {
+    debugger;
+    console.log(`${date}`)
+    this.setState({
+      Duration: date,
     });
   }
 
@@ -72,7 +80,7 @@ class AddBet extends Component {
             </div>
             <div className="duration">
               <label htmlFor="Duration"></label>
-              <DatePicker container="inline" value={this.state.duration} handleChange={this.props.handleChange} id="duration" floatingLabelText="Select End Date" mode="landscape" />
+              <DatePicker container="inline" value={this.state.Duration} onChange={this.handleDateChange} id="duration" floatingLabelText="Select End Date" mode="landscape" />
             </div>
             <div className="submit">
               <RaisedButton type="submit" label="Create New Bet" id="form_button" />
