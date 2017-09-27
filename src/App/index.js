@@ -71,7 +71,7 @@ class App extends Component {
      */
     const weiLongBets = contract(WeiLongBetsContract);
     let weiLongBetsInstance;
-    weiLongBetsInstance.setProvider(this.state.web3.currentProvider);
+    weiLongBets.setProvider(this.state.web3.currentProvider);
     // Declaring this for later so we can chain functions on SimpleStorage.
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {

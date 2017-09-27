@@ -1,0 +1,235 @@
+{
+  "contract_name": "Bet",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "creator",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_sender",
+          "type": "address"
+        }
+      ],
+      "name": "addChallenger",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "comp",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "activeBet",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "exdate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "forfeitFor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "challenger",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "descript",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "votesAgainst",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "awaitingVerdict",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "price",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "startdate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "forfeitAgainst",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "waitingForChallenger",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "votesFor",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_description",
+          "type": "bytes32"
+        },
+        {
+          "name": "_creator",
+          "type": "address"
+        },
+        {
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "name": "_startdate",
+          "type": "uint256"
+        },
+        {
+          "name": "_exdate",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    }
+  ],
+  "unlinked_binary": "0x60606040526006805465ffffffffffff1916905560006007819055600855341561002557fe5b60405160a08061048f83398101604090815281516020830151918301516060840151608090940151919390915b600085905560018054600160a060020a038616600160a060020a03199091161790556003839055600482905560058190556006805461ffff19166101001790555b50505050505b6103e7806100a86000396000f300606060405236156100bf5763ffffffff60e060020a60003504166302d05d3f81146100c15780630ceb6780146100ed578063109d0af81461011d57806319086b9e146101415780633ba89158146101655780633df3d6a114610187578063534db0e2146101ab5780636da153c2146101d757806391b4384d146101f95780639eaac6de1461021b578063a035b1fe1461023f578063cde9f2ea14610261578063eb6e984414610283578063f7257385146102a7578063fd4f623c146102cb575bfe5b34156100c957fe5b6100d16102ed565b60408051600160a060020a039092168252519081900360200190f35b34156100f557fe5b610109600160a060020a03600435166102fc565b604080519115158252519081900360200190f35b341561012557fe5b610109610332565b604080519115158252519081900360200190f35b341561014957fe5b610109610342565b604080519115158252519081900360200190f35b341561016d57fe5b61017561034b565b60408051918252519081900360200190f35b341561018f57fe5b610109610351565b604080519115158252519081900360200190f35b34156101b357fe5b6100d1610361565b60408051600160a060020a039092168252519081900360200190f35b34156101df57fe5b610175610370565b60408051918252519081900360200190f35b341561020157fe5b610175610376565b60408051918252519081900360200190f35b341561022357fe5b61010961037c565b604080519115158252519081900360200190f35b341561024757fe5b61017561038b565b60408051918252519081900360200190f35b341561026957fe5b610175610391565b60408051918252519081900360200190f35b341561028b57fe5b610109610397565b604080519115158252519081900360200190f35b34156102af57fe5b6101096103a7565b604080519115158252519081900360200190f35b34156102d357fe5b6101756103b5565b60408051918252519081900360200190f35b600154600160a060020a031681565b60028054600160a060020a031916600160a060020a0383161790556006805460ff1916600190811761ff0019169091555b919050565b6006546301000000900460ff1681565b60065460ff1681565b60055481565b600654602060020a900460ff1681565b600254600160a060020a031681565b60005481565b60085481565b60065462010000900460ff1681565b60035481565b60045481565b600654602860020a900460ff1681565b600654610100900460ff1681565b600754815600a165627a7a72305820dfd7706936c394591e538cb49294530be26102455b1017aec26c56a9d891d6460029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1506538386263
+}
