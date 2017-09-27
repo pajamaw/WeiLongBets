@@ -43,6 +43,7 @@ class App extends Component {
       console.log('Error finding web3.');
     });
   }
+
   handleSubmit(e) {
     e.preventDefault();
     let betPropertiesFromForm = e.target.elements;
@@ -60,6 +61,7 @@ class App extends Component {
     }));
     e.target.reset();
   }
+
   instantiateContract() {
     console.log(this.state);
     /*

@@ -39,6 +39,15 @@ class RecentBets extends Component {
     this.decrement = this.decrement.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    // in order to update the RecentBets list after a bet is updated
+    if (this.props.bets !== nextProps.bets) {
+      this.setState({
+        currentBetIndex: nextProps.bets.length - 1,
+      });
+    }
+  }
+
   increment() {
     if (this.state.currentBetIndex !== this.props.bets.length - 1) {
       this.setState((prevState) => ({

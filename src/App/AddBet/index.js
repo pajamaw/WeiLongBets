@@ -28,7 +28,6 @@ class AddBet extends Component {
     });
   }
   handleDateChange(event, date) {
-    debugger;
     console.log(`${date}`)
     this.setState({
       Duration: date,
