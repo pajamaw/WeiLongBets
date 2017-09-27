@@ -3,7 +3,7 @@ import contract from 'truffle-contract';
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer';
 
-import SimpleStorageContract from '../../build/contracts/SimpleStorage.json';
+import WeiLongBetsContract from '../../build/contracts/WeiLongBets.json';
 import getWeb3 from '../utils/getWeb3';
 import handShake from '../images/clipart-free-handshake-5.jpg';
 import RecentBets from './RecentBets';
@@ -19,7 +19,6 @@ class App extends Component {
     super(props);
 
     this.state = {
-      storageValue: 1,
       web3: null,
       pending: false,
       calling: false,
@@ -70,27 +69,19 @@ class App extends Component {
      * Normally these functions would be called in the context of a
      * state management library, but for convenience I've placed them here.
      */
-    const simpleStorage = contract(SimpleStorageContract);
-    let simpleStorageInstance;
-    simpleStorage.setProvider(this.state.web3.currentProvider);
+    const weiLongBets = contract(WeiLongBetsContract);
+    let weiLongBetsInstance;
+    weiLongBetsInstance.setProvider(this.state.web3.currentProvider);
     // Declaring this for later so we can chain functions on SimpleStorage.
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
-      simpleStorage.deployed().then((instance) => {
-        simpleStorageInstance = instance;
-        console.log(simpleStorageInstance);
+      weiLongBets.deployed().then((instance) => {
+        weiLongBetsInstance = instance;
+        console.log(weiLongBetsInstance);
         console.log(accounts);
         // Stores a given value, 5 by default.
-        return simpleStorageInstance.set(1, { from: accounts[0] });
-      }).then((result) => {
-        console.log(result);
-        // Get the value from the contract to prove it worked.
-        // get doesn't receive an argument
-        return simpleStorageInstance.get.call();
-      }).then((result) => (
-        // Update state with the result.
-        this.setState({ storageValue: result.c[0] })
-      ));
+        return weiLongBets;
+      });
     });
   }
   handleToggle() {
@@ -119,9 +110,6 @@ class App extends Component {
           <div className="pure-u-1-1">
             <H2>Description</H2>
             <P>Down here well have a verification of the code linking with the source code</P>
-            <P>Try changing the value stored on <strong>line 59</strong> of App.js.</P>
-            <P>The stored value is: {this.state.storageValue} this
-             value was retreived from the blockchain</P>
           </div>
           <RecentBets bets={this.state.allBets} />
           <BetList bets={this.state.allBets} />
