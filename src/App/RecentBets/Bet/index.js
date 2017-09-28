@@ -20,8 +20,11 @@ class Bet extends Component {
     };
   }
   render() {
+    let Description;
+    let Title;
     let { bet } = this.props;
-    let { Description, Title } = bet;
+    Description = bet ? bet.Description : null;
+    Title = bet ? bet.Title : null;
     return (
       <Paper style={containerStyle} zDepth={3}>
         <Card>

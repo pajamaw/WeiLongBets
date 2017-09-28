@@ -11,31 +11,30 @@ const getWeb3 = new Promise((resolve) => {
 
     // so can't use the test net with meta mask so disable it
     // or at least just prevent this from happening in order to use the testrpc net
-    // if (typeof web3 !== 'undefined') {
-    //   // Use Mist/MetaMask's provider.
-    //   web3 = new Web3(web3.currentProvider)
-    //
-    //   results = {
-    //     web3: web3
-    //   }
-    //
-    //   console.log('Injected web3 detected.');
-    //
-    //   resolve(results)
-    //   console.log(results)
-    // } else {
+    if (typeof web3 !== 'undefined') {
+      // Use Mist/MetaMask's provider.
+      web3 = new Web3(web3.currentProvider);
+
+      results = {
+        web3,
+      };
+
+      console.log('Injected web3 detected.');
+
+      resolve(results);
+      console.log(results);
+    } else {
     // Fallback to localhost if no web3 injection.
-    let provider = new Web3.providers.HttpProvider('http://localhost:8545');
-    web3 = new Web3(provider);
+      let provider = new Web3.providers.HttpProvider('http://localhost:8545');
+      web3 = new Web3(provider);
 
-    results = {
-      web3,
-    };
+      results = {
+        web3,
+      };
 
-    console.log('No web3 instance injected, using Local web3.');
-
-    resolve(results);
-    // }
+      console.log('No web3 instance injected, using Local web3.');
+      resolve(results);
+    }
   });
 });
 

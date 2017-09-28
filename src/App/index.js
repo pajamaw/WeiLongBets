@@ -17,15 +17,18 @@ import testBets from './testBets.js';
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       web3: null,
       pending: false,
       calling: false,
-      allBets: testBets,
+      numberOfBets: 0,
+      allBets: ['item'],
       open: false,
+      contractInstance: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getBetCount = this.getBetCount.bind(this);
+    this.collectBets = this.collectBets.bind(this);
   }
   componentWillMount() {
     // Get network provider and web3 instance.
@@ -36,13 +39,71 @@ class App extends Component {
         web3: results.web3,
       });
       // Instantiate contract once web3 provided.
-      this.instantiateContract();
+       this.instantiateContract();
     }).catch((err) => {
       console.log(err);
       console.log('Error finding web3.');
     });
   }
-
+  getBetCount(con) {
+    con.getBetsCount.call().then((number) => {
+      this.setState({
+        numberOfBets: number,
+      });
+    });
+  }
+  collectBets(cont) {
+    let i = 0;
+    let arr = [];
+    while (i < this.state.numberOfBets) {
+      let contractObj = {};
+      cont.getBet.call(i).then((contr) => {
+        contractObj.Description = contr.descript;
+        contractObj.creator = contr.creator;
+        contractObj.challenger = contr.challenger;
+        contractObj.price = contr.price;
+        contractObj.startdate = contr.startdate;
+        contractObj.exdate = contr.exdate;
+        contractObj.activeBet = contr.activeBet;
+        contractObj.awaitingVerdict = contr.awaitingVerdict;
+        contractObj.comp = contr.comp;
+        contractObj.forfeitFor = contr.forfeitFor;
+        contractObj.forfeitAgainst = contr.forfeitAgainst;
+        contractObj.votesFor = contr.votesFor;
+        contractObj.votesAgainst = contr.votesAgainst;
+        arr.push(contractObj);
+      });
+      i++;
+    }
+    this.setState({
+      allBets: arr,
+    });
+  }
+  instantiateContract() {
+    return new Promise((res, rej) => {
+      console.log(this.state);
+      let weiLongBetsInstance;
+      const weiLongBets = contract(WeiLongBetsContract);
+      weiLongBets.setProvider(this.state.web3.currentProvider);
+      // Declaring this for later so we can chain functions on SimpleStorage.
+      // Get accounts.
+      this.state.web3.eth.getAccounts((error, accounts) => {
+        weiLongBets.deployed().then((instance) => {
+          weiLongBetsInstance = instance;
+          this.setState({
+            contractInstance: instance,
+          });
+          console.log(instance);
+          console.log('what', this.state.contractInstance);
+          return weiLongBetsInstance;
+        }).then((wei) => {
+          this.getBetCount(wei);
+          this.collectBets(wei);
+          console.log(this.state);
+        });
+      });
+    });
+  }
   handleSubmit(e) {
     e.preventDefault();
     let betPropertiesFromForm = e.target.elements;
@@ -61,29 +122,6 @@ class App extends Component {
     e.target.reset();
   }
 
-  instantiateContract() {
-    console.log(this.state);
-    /*
-     * SMART CONTRACT EXAMPLE
-     *
-     * Normally these functions would be called in the context of a
-     * state management library, but for convenience I've placed them here.
-     */
-    const weiLongBets = contract(WeiLongBetsContract);
-    let weiLongBetsInstance;
-    weiLongBets.setProvider(this.state.web3.currentProvider);
-    // Declaring this for later so we can chain functions on SimpleStorage.
-    // Get accounts.
-    this.state.web3.eth.getAccounts((error, accounts) => {
-      weiLongBets.deployed().then((instance) => {
-        weiLongBetsInstance = instance;
-        console.log(weiLongBetsInstance);
-        console.log(accounts);
-        // Stores a given value, 5 by default.
-        return weiLongBets;
-      });
-    });
-  }
   handleToggle() {
     this.setState({ open: !this.state.open });
   }
